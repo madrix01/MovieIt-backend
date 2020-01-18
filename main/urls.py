@@ -8,5 +8,6 @@ router.register('genre', views.GenreView)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('api/search/', csrf_exempt(views.user_form)),
+    path('api/genre/', csrf_exempt(views.user_form)),
+    path('api/search/', csrf_exempt(views.search_view)),
 ]

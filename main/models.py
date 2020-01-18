@@ -1,5 +1,5 @@
 from django.db import models
-from authemail.models import EmailUserManager, EmailAbstractUser
+
 
 class Genre(models.Model):
     name = models.CharField(max_length=100)
@@ -14,10 +14,17 @@ class Genre(models.Model):
     animation = models.BooleanField(default=False)
     crime = models.BooleanField(default=False)
     drama = models.BooleanField(default=False)
+    email = models.EmailField()
 
     def __str__(self):
         return self.name
 
 
-class MyUser(EmailAbstractUser):
-    objects = EmailUserManager()
+class Search(models.Model):
+    name = models.CharField(max_length=100)
+    search = models.CharField(max_length=100)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.name
+
