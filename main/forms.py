@@ -3,16 +3,16 @@ from .models import *
 
 class GenreForm(forms.ModelForm):
     name = forms.CharField(max_length=100, label='name')
-    adventure = forms.BooleanField(default=False, label='adventure')
-    children = forms.BooleanField(default=False, label='children')
-    comedy = forms.BooleanField(default=False, label='comedy')
-    thriller = forms.BooleanField(default=False, label='thriller')
-    romance = forms.BooleanField(default=False, label='romance')
-    action = forms.BooleanField(default=False, label='action')
-    horror = forms.BooleanField(default=False, label='horror')
-    animation = forms.BooleanField(default=False, label='animation')
-    crime = forms.BooleanField(default=False, label='crime')
-    drama = forms.BooleanField(default=False, label='drama')
+    adventure = forms.BooleanField(label='adventure', required=False)
+    children = forms.BooleanField(label='children', required=False)
+    comedy = forms.BooleanField(label='comedy', required=False)
+    thriller = forms.BooleanField(label='thriller', required=False)
+    romance = forms.BooleanField(label='romance', required=False)
+    action = forms.BooleanField(label='action', required=False)
+    horror = forms.BooleanField(label='horror', required=False)
+    animation = forms.BooleanField(label='animation', required=False)
+    crime = forms.BooleanField(label='crime', required=False)
+    drama = forms.BooleanField(label='drama', required=False)
 
     class Meta:
         model = Genre
