@@ -3,8 +3,11 @@ from django.http import JsonResponse
 from rest_framework import viewsets, permissions
 from .models import * 
 from .serializers import *
-from .forms import *
+from .forms import * 
 from django.db.models import Q
+from django.contrib.auth import authenticate, get_user_model, login, logout
+from  django.contrib.auth.models import User, auth
+# machine learning model 1
 import pandas as pd 
 import numpy as np
 import seaborn as sns
@@ -45,7 +48,7 @@ def build_chart(genre, no=0, percentile=0.85):
     qualified['wr'] = qualified.apply(lambda x: (x['vote_count']/(x['vote_count'] + m) * x['vote_average']) + (m/(m + x['vote_count']) * C), axis=1)
     qualified = qualified.sort_values('wr', ascending=True).head(250)
     return qualified
-
+## end of model1
 
 
 class GenreView(viewsets.ModelViewSet):
@@ -81,13 +84,16 @@ def user_form(request):
                 if x[i][1] == True: 
                     y.append(x[i][0])
             u.save()
-            a = build_chart(y).head(20)
-            out = a['title']
-            j_out = json.dump(a['title'])
-            print(j_out)
-
+            a = build_chart(y).head(69)
+            col_title = list(a.title)
+            json_title = json.dumps(col_title)
+            print(json_title)
+            return JsonResponse(col_title, safe=False)
     else:
         form = GenreForm()
     return render(request, 'main/form.html' ,{
         'form':form
     })#JsonResponse("{'page': 'form'}", safe=False)
+
+
+

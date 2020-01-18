@@ -26,7 +26,10 @@ SECRET_KEY = 'u=h+7gec1*-b1swc4em(#!6c-565hrrg#&s17b5*-8r8bf=5i8'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+#EMAIL_USE_TLS = True
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_HOST_USER = 'shl'
+#EMAIL_HOST_PASSWORD =
 
 # Application definition
 

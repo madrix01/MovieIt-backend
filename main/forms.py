@@ -1,5 +1,7 @@
 from django import forms
 from .models import *
+from django.contrib.auth import authenticate, get_user_model
+
 
 class GenreForm(forms.ModelForm):
     name = forms.CharField(max_length=100, label='name')
@@ -17,5 +19,4 @@ class GenreForm(forms.ModelForm):
     class Meta:
         model = Genre
         fields = '__all__'
-
-
+        
