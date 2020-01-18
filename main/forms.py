@@ -4,7 +4,7 @@ from .models import *
 class GenreForm(forms.ModelForm):
     name = forms.CharField(max_length=100, label='name')
     adventure = forms.BooleanField(label='adventure', required=False)
-    children = forms.BooleanField(label='children', required=False)
+    family = forms.BooleanField(label='family', required=False)
     comedy = forms.BooleanField(label='comedy', required=False)
     thriller = forms.BooleanField(label='thriller', required=False)
     romance = forms.BooleanField(label='romance', required=False)
