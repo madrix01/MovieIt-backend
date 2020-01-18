@@ -1,4 +1,5 @@
 from django.db import models
+from authemail.models import EmailUserManager, EmailAbstractUser
 
 class Genre(models.Model):
     name = models.CharField(max_length=100)
@@ -17,3 +18,6 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
+
+class MyUser(EmailAbstractUser):
+    objects = EmailUserManager()

@@ -7,6 +7,7 @@ from .forms import *
 from django.db.models import Q
 from django.contrib.auth import authenticate, get_user_model, login, logout
 from  django.contrib.auth.models import User, auth
+from hashlib import sha256
 # machine learning model 1
 import pandas as pd 
 import numpy as np
@@ -93,7 +94,8 @@ def user_form(request):
         form = GenreForm()
     return render(request, 'main/form.html' ,{
         'form':form
-    })#JsonResponse("{'page': 'form'}", safe=False)
+    }
+
 
 
 
