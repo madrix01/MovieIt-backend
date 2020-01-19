@@ -1,0 +1,17 @@
+.form-check{
+    left:0px;
+    position: absolute;
+    top:auto;
+}
+.home{
+    background-color: red;
+    display: grid;
+    grid-template-areas: "sidenav content";
+    grid-template-columns: 10% 90%;
+}
+.sidenav{
+    grid-area:sidenav;
+}
+.jumbotron{
+    grid-area:content;
+}

@@ -1,0 +1,7 @@
+{% extends "main/base.html" %}
+{% block content %}        
+<form action="api/home/", method="POST">
+    {{form.as_p}}
+    <input type="submit">
+</form>
+{% endblock %}

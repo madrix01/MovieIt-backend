@@ -143,7 +143,6 @@ def user_form(request):
 def search_view(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        print(form)
         if form.is_valid():
             search = form.cleaned_data['search']
             print(search)

@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <body>
+{% extends "main/base.html" %}
+    {% block content %}
         <form action="/", method="POST">
             {{form}}
             <input type="submit">
         </form>
-    </body>
-</html>
+    {% endblock %}
+    

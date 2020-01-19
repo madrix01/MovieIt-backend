@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <body>
-        <form action="/api/search/", method="POST">
-            {{form}}
-            <input type="submit">
-        </form>
-    </body>
-</html>
+{% extends "main/base.html" %}
+{% block content %}
+<form action="/api/search/", method="POST">
+    {{form}}
+    <input type="submit">
+</form>
+{% endblock %}

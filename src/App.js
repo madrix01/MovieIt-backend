@@ -1,24 +1,28 @@
-import React, { Component } from 'react';
-import '.\App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Search from '.\Pages\Search';
-import 'bootstrap\dist\css\bootstrap.css'
-import PageNotFound from '.\Pages\PageNotFound';
-class App extends Component{
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Register from './Pages/Register';
+import Login from './Pages/Login';
+import Home from './Pages/Home';
+import Logout from './Pages/Logout';
 
-
-  render(){
-    
-    return(
-      <Router>
-          <Switch>
-            
-          <Route exact path='/' component={Search} />
-          <Route path='*' component={PageNotFound} />
-          </Switch>
-      </Router>
-    );
-    }
+function App() {
+  return (
+    <div className="App">
+          <BrowserRouter>
+          <Navbar />
+            <Switch>
+              <Route path='/home' component={Home} />
+              <Route path='/register' component={Register} />
+              <Route path='/login' component={Login} />
+              <Route path='/logout' component={Logout} />
+              
+            </Switch>
+          </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;

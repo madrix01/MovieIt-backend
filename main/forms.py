@@ -24,7 +24,6 @@ class GenreForm(forms.ModelForm):
 
 class SearchForm(forms.ModelForm):
     search = forms.CharField(max_length=100)
-
     class Meta:
         model = Search
         fields = '__all__'
