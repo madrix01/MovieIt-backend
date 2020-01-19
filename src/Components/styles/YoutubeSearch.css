@@ -1,0 +1,15 @@
+*{
+    color: white;
+}
+.card-header{
+    color:black
+}
+.card{
+    display: inline-flex;
+    width:25%;
+    padding:10px;
+    margin: 20px;
+}
+.card-text,.card-title{
+    color:black;
+}

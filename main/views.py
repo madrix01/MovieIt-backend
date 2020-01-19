@@ -123,17 +123,17 @@ def user_form(request):
             animation = form.cleaned_data['animation']
             x = [("Adventure", adventure), ("Horror", horror), ("Crime", crime), ("Romance", romance), ("Family", family), ("Fantasy", fantasy), ("Comedy", comedy), ("Thriller", thriller), ("Action", action), ("Drama", drama), ("Animation", animation)]
             u = Genre(name=name, adventure=adventure, horror=horror, crime=crime, romance=romance, family=family, fantasy=fantasy, comedy=comedy, thriller=thriller, action=action, drama=drama, animation=animation)
-            
             y = []
             for i in range(len(x)):
                 if x[i][1] == True: 
                     y.append(x[i][0])
             u.save()
-            a = build_chart(y).head(69)
+            a = build_chart(y).head(10)
             col_title = list(a.title)
             json_title = json.dumps(col_title)
             print(json_title)
-            send_mail(col_title, email)
+            #send_mail(col_title, email)
+            print(y)
             return JsonResponse(col_title, safe=False)
     else:
         form = GenreForm()
@@ -143,18 +143,18 @@ def user_form(request):
 def search_view(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
+        print(form)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
             search = form.cleaned_data['search']
-            u = Search(name=name, email=email, search=search)
+            print(search)
+            u = Search(search=search)
             u.save()
             a = get_recommendations(search)
             col_title = list(a)
             json_title = json.dumps(col_title)
             json_title = json.loads(json_title)
             print(json_title)
-            send_mail(col_title, email)
+            #send_mail(col_title, email)
             return JsonResponse(json_title, safe=False)
     else:
         form = SearchForm()

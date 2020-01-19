@@ -27,3 +27,146 @@
 .App-link {
   color: #61dafb;
 }
+/* All The CSS Styles in this Page Are Self Created */
+
+.page{
+  height: 100vh;
+  background-color: #282c34;
+}
+.mynav{
+  top:0px;
+  left:0px;   
+  right:0px;
+  position: relative;
+  background-color: white;
+  font-size: 25pxs;
+  display: flex;
+  color:black;
+}
+.mynavTitle{
+  margin:15px;
+  padding:5px;
+  font-size: 25px;
+  color:black;
+}
+.mycontent{
+  right:0px;
+  justify-content: center;
+  align-self: center;
+  position: absolute;
+  color:black;
+}
+ul{
+  list-style: none;
+  display: inline-flex;
+}
+ul > li{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding:10px;
+  cursor:pointer;
+  color:black;
+}
+
+li:hover{
+  color:white;
+  background-color: #282c34;
+
+}
+
+form{
+  padding:20px;
+}
+input[type='text'],button{
+  margin:10px;
+  padding:10px;
+  font-size: 20px;
+}
+input[type='text']{
+  border-radius: 25px;
+  border:0px;
+  padding:30px;
+  font-size: 20px;
+  width:50%;
+}
+button{
+  border:0px;
+  border-radius: 5px;
+  width:10%;
+  outline:0px;
+  cursor: pointer;
+}
+#searchbtn{
+  padding:0px;
+  margin:0px;
+  font-size: 20px;
+  padding:5px;
+  border-radius: 5px;
+  color:white;
+  background-color: #101010;
+  transition-duration: 0.1s;
+  padding:15px;
+}
+#searchbtn:hover{
+  background-color: #ffffff;
+  color:black;
+  box-shadow: 0 0 5px white;
+  border:1px dashed black;
+}
+.mycontainer{
+  height: 100vh;
+  background-color: red !important;
+  display: grid;
+  grid-template-areas: "b1 form form form form b2"
+                      "b1 form form form form b2"
+                      "b1 l l l l b2" 
+                      "mcontent mcontent mcontent mcontent mcontent mcontent";
+              
+  grid-template-rows: 30% 10% 25% auto !important;
+
+}
+
+#b1{
+  grid-area: b1;
+}
+#searchform{
+  position: absolute;
+  grid-area: form;
+}
+#b2{
+  grid-area: b2;
+}
+#filters{
+  grid-area:l;
+}
+#results{
+  background-color: #282c34;
+  grid-area:mcontent;
+}
+.chip {
+  cursor: pointer;
+  margin:20px;
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+  transition-duration: 0.1s;
+  user-select: none;
+  color:black;
+}
+.chip:hover{
+  box-shadow: 0 0 20px white;
+}
+.chip:active{
+  box-shadow: 0 0 10px white;
+}
+.chip-active{
+  background-color: #000000;
+  color:white;
+}
+#searchinput:hover{
+  box-shadow: 0 0 15px white;
+}

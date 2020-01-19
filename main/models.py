@@ -14,16 +14,15 @@ class Genre(models.Model):
     animation = models.BooleanField(default=False)
     crime = models.BooleanField(default=False)
     drama = models.BooleanField(default=False)
-    email = models.EmailField()
 
     def __str__(self):
         return self.name
 
 
 class Search(models.Model):
-    name = models.CharField(max_length=100)
     search = models.CharField(max_length=100)
-    email = models.EmailField()
+
 
     def __str__(self):
-        return self.name
+        return self.search
+        

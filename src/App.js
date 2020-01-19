@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
-import './App.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Search from './Pages/Search';
+import '.\App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Search from '.\Pages\Search';
+import 'bootstrap\dist\css\bootstrap.css'
+import PageNotFound from '.\Pages\PageNotFound';
 class App extends Component{
 
-  constructor(props){
-    super(props)
-  }
 
   render(){
+    
     return(
-      <BrowserRouter>
-         <Switch>
-           <Route path='' Component={Search} />
-         </Switch>
-      </BrowserRouter>
+      <Router>
+          <Switch>
+            
+          <Route exact path='/' component={Search} />
+          <Route path='*' component={PageNotFound} />
+          </Switch>
+      </Router>
     );
     }
 }

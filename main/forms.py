@@ -5,8 +5,7 @@ from django.contrib.auth import authenticate, get_user_model
 User = get_user_model()
 
 class GenreForm(forms.ModelForm):
-    name = forms.CharField(max_length=100, label='name')
-    email = forms.EmailField()
+    name = forms.CharField(max_length=100, label='name', required=False)
     adventure = forms.BooleanField(label='adventure', required=False)
     family = forms.BooleanField(label='family', required=False)
     comedy = forms.BooleanField(label='comedy', required=False)
@@ -24,8 +23,6 @@ class GenreForm(forms.ModelForm):
 
 
 class SearchForm(forms.ModelForm):
-    name = forms.CharField(max_length=100)
-    email = forms.EmailField()
     search = forms.CharField(max_length=100)
 
     class Meta:
@@ -34,15 +31,15 @@ class SearchForm(forms.ModelForm):
 
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField()
+    email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
 
     def clean(self, *args, **kwargs):
-        username = self.cleaned_data.get('username')
+        email = self.cleaned_data.get('email')
         password = self.cleaned_data.get('password')
 
         if username and password:
-            user = authenticate(username=username, password=password)
+            user = authenticate(email=email, password=password)
             if not user:
                 raise forms.ValidationError('This user does not exist')
             if not user.check_password(password):

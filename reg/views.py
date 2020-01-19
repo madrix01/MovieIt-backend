@@ -13,14 +13,14 @@ def login_view(request):
     next = request.GET.get('next')
     form = UserLoginForm(request.POST or None)
     if form.is_valid():
-        username = form.cleaned_data.get('username')
+        email = form.cleaned_data.get('email')
         password = form.cleaned_data.get('password')
-        user = authenticate(username=username, password=password)
+        user = authenticate(email=email, password=password)
         login(request, user)
         if login:
-            return JsonResponse("{'message' : 'login successful'}", safe=False)
+            return JsonResponse("{'message' : 'login successful'}", safe=False, status=200)
         else:
-            return JsonResponse("{'message' : 'invalid credentials'}", safe=False)
+            return JsonResponse("{'message' : 'invalid credentials'}", safe=False, status=400)
     return JsonResponse("{'message' : 'login'}", safe=False)
 
 
@@ -41,4 +41,5 @@ def register_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('/')
+    return JsonResponse({'message':'Logout'}, safe=False, status=200)
+
